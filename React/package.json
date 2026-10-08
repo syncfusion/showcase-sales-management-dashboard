@@ -1,0 +1,51 @@
+{
+  "name": "sales-management",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "predev": "node scripts/activate-license.mjs && node scripts/copy-theme.mjs",
+    "dev": "vite",
+    "prebuild": "node scripts/activate-license.mjs && node scripts/copy-theme.mjs",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc -b",
+    "generate-data": "node src/data/generator/generate.mjs"
+  },
+  "dependencies": {
+    "@syncfusion/ej2-react-buttons": "34.2.8",
+    "@syncfusion/ej2-react-charts": "34.2.8",
+    "@syncfusion/ej2-react-diagrams": "34.2.9",
+    "@syncfusion/ej2-react-dropdowns": "34.2.8",
+    "@syncfusion/ej2-react-grids": "34.2.9",
+    "@syncfusion/ej2-react-inputs": "34.2.8",
+    "@syncfusion/ej2-react-interactive-chat": "34.2.8",
+    "@syncfusion/ej2-react-kanban": "34.2.8",
+    "@syncfusion/ej2-react-layouts": "34.2.8",
+    "@syncfusion/ej2-react-lists": "34.2.8",
+    "@syncfusion/ej2-react-navigations": "34.2.8",
+    "@syncfusion/ej2-react-notifications": "34.2.8",
+    "@syncfusion/ej2-react-schedule": "34.2.8",
+    "@syncfusion/ej2-tailwind3-theme": "34.2.9",
+    "lucide-react": "1.52.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-router": "8.4.0",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.3.3",
+    "@types/node": "26.6.4",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "tailwindcss": "4.3.3",
+    "typescript": "7.0.2",
+    "vite": "8.3.3",
+    "vitest": "5.0.3"
+  }
+}

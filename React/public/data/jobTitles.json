@@ -1,0 +1,17 @@
+[
+ {
+  "id": 1,
+  "code": "SM",
+  "name": "Sales Manager"
+ },
+ {
+  "id": 2,
+  "code": "TL",
+  "name": "Team Leader"
+ },
+ {
+  "id": 3,
+  "code": "SR",
+  "name": "Sales Rep"
+ }
+]

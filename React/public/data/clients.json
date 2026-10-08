@@ -1,0 +1,146 @@
+[
+ {
+  "id": 1,
+  "firstName": "James",
+  "lastName": "Tailor",
+  "jobTitle": "Buyer",
+  "phone": "555-0110",
+  "email": "james.tailor@example.com",
+  "outletId": 1
+ },
+ {
+  "id": 2,
+  "firstName": "Maria",
+  "lastName": "Delgado",
+  "jobTitle": "Store Manager",
+  "phone": "555-0111",
+  "email": "maria.delgado@example.com",
+  "outletId": 1
+ },
+ {
+  "id": 3,
+  "firstName": "Kevin",
+  "lastName": "Brooks",
+  "jobTitle": "Assistant Buyer",
+  "phone": "555-0112",
+  "email": "kevin.brooks@example.com",
+  "outletId": 1
+ },
+ {
+  "id": 4,
+  "firstName": "Priya",
+  "lastName": "Nair",
+  "jobTitle": "Merchandiser",
+  "phone": "555-0113",
+  "email": "priya.nair@example.com",
+  "outletId": 1
+ },
+ {
+  "id": 5,
+  "firstName": "Jill",
+  "lastName": "Hutton",
+  "jobTitle": "Buyer",
+  "phone": "555-0114",
+  "email": "jill.hutton@example.com",
+  "outletId": 2
+ },
+ {
+  "id": 6,
+  "firstName": "Marcus",
+  "lastName": "Chen",
+  "jobTitle": "Store Manager",
+  "phone": "555-0115",
+  "email": "marcus.chen@example.com",
+  "outletId": 2
+ },
+ {
+  "id": 7,
+  "firstName": "Rosa",
+  "lastName": "Alvarez",
+  "jobTitle": "Category Lead",
+  "phone": "555-0116",
+  "email": "rosa.alvarez@example.com",
+  "outletId": 2
+ },
+ {
+  "id": 8,
+  "firstName": "Tom",
+  "lastName": "Becker",
+  "jobTitle": "Assistant Buyer",
+  "phone": "555-0117",
+  "email": "tom.becker@example.com",
+  "outletId": 2
+ },
+ {
+  "id": 9,
+  "firstName": "Craig",
+  "lastName": "Rice",
+  "jobTitle": "Buyer",
+  "phone": "555-0118",
+  "email": "craig.rice@example.com",
+  "outletId": 3
+ },
+ {
+  "id": 10,
+  "firstName": "Hannah",
+  "lastName": "Klein",
+  "jobTitle": "Store Manager",
+  "phone": "555-0119",
+  "email": "hannah.klein@example.com",
+  "outletId": 3
+ },
+ {
+  "id": 11,
+  "firstName": "Darnell",
+  "lastName": "Price",
+  "jobTitle": "Merchandiser",
+  "phone": "555-0120",
+  "email": "darnell.price@example.com",
+  "outletId": 3
+ },
+ {
+  "id": 12,
+  "firstName": "Lucy",
+  "lastName": "Ford",
+  "jobTitle": "Assistant Buyer",
+  "phone": "555-0121",
+  "email": "lucy.ford@example.com",
+  "outletId": 3
+ },
+ {
+  "id": 13,
+  "firstName": "Amy",
+  "lastName": "Smith",
+  "jobTitle": "Buyer",
+  "phone": "555-0122",
+  "email": "amy.smith@example.com",
+  "outletId": 4
+ },
+ {
+  "id": 14,
+  "firstName": "Erik",
+  "lastName": "Lindqvist",
+  "jobTitle": "Store Manager",
+  "phone": "555-0123",
+  "email": "erik.lindqvist@example.com",
+  "outletId": 4
+ },
+ {
+  "id": 15,
+  "firstName": "Grace",
+  "lastName": "Okafor",
+  "jobTitle": "Category Lead",
+  "phone": "555-0124",
+  "email": "grace.okafor@example.com",
+  "outletId": 4
+ },
+ {
+  "id": 16,
+  "firstName": "Owen",
+  "lastName": "Park",
+  "jobTitle": "Merchandiser",
+  "phone": "555-0125",
+  "email": "owen.park@example.com",
+  "outletId": 4
+ }
+]

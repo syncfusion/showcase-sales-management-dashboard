@@ -1,0 +1,154 @@
+[
+ {
+  "id": 1,
+  "name": "Mountain Bike 1",
+  "description": "Hardtail trail bike with 100 mm fork and 21-speed drivetrain.",
+  "imagePath": "images/products/MountainBike1.jpg",
+  "price": 200,
+  "categoryId": 1
+ },
+ {
+  "id": 2,
+  "name": "Mountain Bike 2",
+  "description": "Trail bike with hydraulic disc brakes and tubeless-ready rims.",
+  "imagePath": "images/products/MountainBike2.jpg",
+  "price": 210,
+  "categoryId": 1
+ },
+ {
+  "id": 3,
+  "name": "Road Bike 1",
+  "description": "Lightweight aluminum road frame with carbon fork.",
+  "imagePath": "images/products/RoadBike1.jpg",
+  "price": 240,
+  "categoryId": 2
+ },
+ {
+  "id": 4,
+  "name": "Road Bike 2",
+  "description": "Endurance geometry for long rides, 2x11 gearing.",
+  "imagePath": "images/products/RoadBike2.jpg",
+  "price": 250,
+  "categoryId": 2
+ },
+ {
+  "id": 5,
+  "name": "Road Bike 3",
+  "description": "Aero race frame with internal cable routing.",
+  "imagePath": "images/products/RoadBike3.jpg",
+  "price": 252,
+  "categoryId": 2
+ },
+ {
+  "id": 6,
+  "name": "Road Bike 4",
+  "description": "All-road bike with clearance for 35 mm tires.",
+  "imagePath": "images/products/RoadBike4.jpg",
+  "price": 230,
+  "categoryId": 2
+ },
+ {
+  "id": 7,
+  "name": "Tent 1",
+  "description": "Three-person, three-season dome tent with vestibule.",
+  "imagePath": "images/products/Tent1.jpg",
+  "price": 230,
+  "categoryId": 3
+ },
+ {
+  "id": 8,
+  "name": "Tent 2",
+  "description": "Two-person ultralight backpacking tent, 1.4 kg.",
+  "imagePath": "images/products/Tent2.jpg",
+  "price": 230,
+  "categoryId": 3
+ },
+ {
+  "id": 9,
+  "name": "Air Mattress 1",
+  "description": "Compact inflatable sleeping pad for day trips.",
+  "imagePath": "images/products/Mattress1.jpg",
+  "price": 11,
+  "categoryId": 3
+ },
+ {
+  "id": 10,
+  "name": "Air Mattress 2",
+  "description": "Insulated pad rated for cold nights, R-value 3.5.",
+  "imagePath": "images/products/Mattress2.jpg",
+  "price": 40,
+  "categoryId": 3
+ },
+ {
+  "id": 11,
+  "name": "Air Mattress 3",
+  "description": "Double-width self-inflating camp mattress.",
+  "imagePath": "images/products/Mattress3.jpg",
+  "price": 54,
+  "categoryId": 3
+ },
+ {
+  "id": 12,
+  "name": "Air Mattress 4",
+  "description": "Foam-core pad with built-in pillow.",
+  "imagePath": "images/products/Mattress4.jpg",
+  "price": 15,
+  "categoryId": 3
+ },
+ {
+  "id": 13,
+  "name": "Pack 1",
+  "description": "20 L daypack with hydration sleeve.",
+  "imagePath": "images/products/Pack1.jpg",
+  "price": 24,
+  "categoryId": 4
+ },
+ {
+  "id": 14,
+  "name": "Pack 2",
+  "description": "35 L hiking pack with ventilated back panel.",
+  "imagePath": "images/products/Pack2.jpg",
+  "price": 30,
+  "categoryId": 4
+ },
+ {
+  "id": 15,
+  "name": "Pack 3",
+  "description": "50 L trekking pack with rain cover.",
+  "imagePath": "images/products/Pack3.jpg",
+  "price": 35,
+  "categoryId": 4
+ },
+ {
+  "id": 16,
+  "name": "Boot 1",
+  "description": "Low-cut trail shoe with grippy rubber outsole.",
+  "imagePath": "images/products/Boot1.jpg",
+  "price": 20,
+  "categoryId": 5
+ },
+ {
+  "id": 17,
+  "name": "Boot 2",
+  "description": "Waterproof mid-height hiking boot.",
+  "imagePath": "images/products/Boot2.jpg",
+  "price": 38,
+  "categoryId": 5
+ },
+ {
+  "id": 18,
+  "name": "Boot 3",
+  "description": "Leather hiking boot with cushioned midsole.",
+  "imagePath": "images/products/Boot3.jpg",
+  "price": 35,
+  "categoryId": 5
+ },
+ {
+  "id": 19,
+  "name": "Boot 4",
+  "description": "Lightweight approach shoe for rocky trails.",
+  "imagePath": "images/products/Boot4.jpg",
+  "price": 31,
+  "categoryId": 5
+ }
+]

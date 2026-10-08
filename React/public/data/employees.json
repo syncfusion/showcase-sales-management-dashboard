@@ -1,0 +1,145 @@
+[
+ {
+  "id": 1,
+  "firstName": "Bob",
+  "lastName": "Jones",
+  "email": "bob.jones@oexl.example.com",
+  "gender": "Male",
+  "dateOfBirth": "1974-02-10",
+  "reportsToId": null,
+  "jobTitleId": 1,
+  "imagePath": "images/profile/BobJones.jpg"
+ },
+ {
+  "id": 2,
+  "firstName": "Jenny",
+  "lastName": "Marks",
+  "email": "jenny.marks@oexl.example.com",
+  "gender": "Female",
+  "dateOfBirth": "1976-05-06",
+  "reportsToId": 1,
+  "jobTitleId": 2,
+  "imagePath": "images/profile/JennyMarks.jpg"
+ },
+ {
+  "id": 3,
+  "firstName": "Henry",
+  "lastName": "Andrews",
+  "email": "henry.andrews@oexl.example.com",
+  "gender": "Male",
+  "dateOfBirth": "1981-05-06",
+  "reportsToId": 1,
+  "jobTitleId": 2,
+  "imagePath": "images/profile/HenryAndrews.jpg"
+ },
+ {
+  "id": 4,
+  "firstName": "John",
+  "lastName": "Jameson",
+  "email": "john.jameson@oexl.example.com",
+  "gender": "Male",
+  "dateOfBirth": "1984-04-17",
+  "reportsToId": 1,
+  "jobTitleId": 2,
+  "imagePath": "images/profile/JohnJameson.jpg"
+ },
+ {
+  "id": 5,
+  "firstName": "Noah",
+  "lastName": "Robinson",
+  "email": "noah.robinson@oexl.example.com",
+  "gender": "Male",
+  "dateOfBirth": "1993-02-12",
+  "reportsToId": 2,
+  "jobTitleId": 3,
+  "imagePath": "images/profile/NoahRobinson.jpg"
+ },
+ {
+  "id": 6,
+  "firstName": "Elijah",
+  "lastName": "Hamilton",
+  "email": "elijah.hamilton@oexl.example.com",
+  "gender": "Male",
+  "dateOfBirth": "1993-06-17",
+  "reportsToId": 2,
+  "jobTitleId": 3,
+  "imagePath": "images/profile/ElijahHamilton.jpg"
+ },
+ {
+  "id": 7,
+  "firstName": "Jamie",
+  "lastName": "Fisher",
+  "email": "jamie.fisher@oexl.example.com",
+  "gender": "Male",
+  "dateOfBirth": "1992-07-13",
+  "reportsToId": 2,
+  "jobTitleId": 3,
+  "imagePath": "images/profile/JamieFisher.jpg"
+ },
+ {
+  "id": 8,
+  "firstName": "Olivia",
+  "lastName": "Mills",
+  "email": "olivia.mills@oexl.example.com",
+  "gender": "Female",
+  "dateOfBirth": "1990-04-17",
+  "reportsToId": 3,
+  "jobTitleId": 3,
+  "imagePath": "images/profile/OliviaMills.jpg"
+ },
+ {
+  "id": 9,
+  "firstName": "Benjamin",
+  "lastName": "Lucas",
+  "email": "benjamin.lucas@oexl.example.com",
+  "gender": "Male",
+  "dateOfBirth": "1993-02-12",
+  "reportsToId": 3,
+  "jobTitleId": 3,
+  "imagePath": "images/profile/BenjaminLucas.jpg"
+ },
+ {
+  "id": 10,
+  "firstName": "Sarah",
+  "lastName": "Henderson",
+  "email": "sarah.henderson@oexl.example.com",
+  "gender": "Female",
+  "dateOfBirth": "1991-09-23",
+  "reportsToId": 3,
+  "jobTitleId": 3,
+  "imagePath": "images/profile/SarahHenderson.jpg"
+ },
+ {
+  "id": 11,
+  "firstName": "Emma",
+  "lastName": "Lee",
+  "email": "emma.lee@oexl.example.com",
+  "gender": "Female",
+  "dateOfBirth": "1994-11-02",
+  "reportsToId": 4,
+  "jobTitleId": 3,
+  "imagePath": "images/profile/EmmaLee.jpg"
+ },
+ {
+  "id": 12,
+  "firstName": "Ava",
+  "lastName": "Williams",
+  "email": "ava.williams@oexl.example.com",
+  "gender": "Female",
+  "dateOfBirth": "1995-03-28",
+  "reportsToId": 4,
+  "jobTitleId": 3,
+  "imagePath": "images/profile/AvaWilliams.jpg"
+ },
+ {
+  "id": 13,
+  "firstName": "Angela",
+  "lastName": "Moore",
+  "email": "angela.moore@oexl.example.com",
+  "gender": "Female",
+  "dateOfBirth": "1989-08-14",
+  "reportsToId": 4,
+  "jobTitleId": 3,
+  "imagePath": "images/profile/AngelaMoore.jpg"
+ }
+]

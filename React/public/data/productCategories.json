@@ -1,0 +1,22 @@
+[
+ {
+  "id": 1,
+  "name": "Mountain Bikes"
+ },
+ {
+  "id": 2,
+  "name": "Road Bikes"
+ },
+ {
+  "id": 3,
+  "name": "Camping"
+ },
+ {
+  "id": 4,
+  "name": "Hiking"
+ },
+ {
+  "id": 5,
+  "name": "Boots"
+ }
+]

@@ -1,0 +1,22 @@
+[
+ {
+  "id": 1,
+  "name": "Texas Outdoor Store",
+  "location": "TX"
+ },
+ {
+  "id": 2,
+  "name": "California Outdoor Store",
+  "location": "CA"
+ },
+ {
+  "id": 3,
+  "name": "New York Outdoor Store",
+  "location": "NY"
+ },
+ {
+  "id": 4,
+  "name": "Washington Outdoor Store",
+  "location": "WA"
+ }
+]

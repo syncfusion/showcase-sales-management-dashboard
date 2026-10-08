@@ -1,0 +1,66 @@
+/* App-specific token extensions (design/DESIGN.md). Primitives first, then semantic/component roles. */
+:root {
+  --app-color-teal-600: #0e7c86;
+  --app-color-violet-600: #6941c6;
+  --app-color-rose-600: #c01048;
+  --app-color-orange-600: #c4320a;
+
+  --color-sf-chart-series-2: var(--app-color-teal-600);
+  --color-sf-chart-series-3: var(--sf-color-amber-600);
+  --color-sf-chart-series-4: var(--app-color-violet-600);
+  --color-sf-chart-series-5: var(--app-color-rose-600);
+  --color-sf-chart-series-6: var(--sf-color-slate-500);
+
+  --app-category-c1: var(--color-sf-chart-series-1);
+  --app-category-c2: var(--color-sf-chart-series-2);
+  --app-category-c3: var(--color-sf-chart-series-3);
+  --app-category-c4: var(--color-sf-chart-series-4);
+  --app-category-c5: var(--color-sf-chart-series-5);
+  --app-location-TX: var(--color-sf-chart-series-1);
+  --app-location-CA: var(--color-sf-chart-series-2);
+  --app-location-NY: var(--color-sf-chart-series-3);
+  --app-location-WA: var(--color-sf-chart-series-4);
+
+  --app-status-new-bg: var(--sf-color-slate-100);
+  --app-status-new-fg: var(--sf-color-slate-700);
+  --app-status-processing-bg: var(--color-sf-bg-brand-subtle);
+  --app-status-processing-fg: var(--color-sf-fg-brand-primary);
+  --app-status-shipped-bg: var(--color-sf-bg-warning-primary);
+  --app-status-shipped-fg: var(--color-sf-fg-warning-primary);
+  --app-status-delivered-bg: var(--color-sf-bg-success-primary);
+  --app-status-delivered-fg: var(--color-sf-fg-success-primary);
+  --app-status-cancelled-bg: var(--color-sf-bg-danger-primary);
+  --app-status-cancelled-fg: var(--color-sf-fg-danger-primary);
+
+  --app-sample-badge-bg: var(--color-sf-bg-brand-subtle);
+  --app-sample-badge-fg: var(--color-sf-fg-brand-primary);
+
+  --app-topbar-height: 56px;
+  --app-sidebar-width: 248px;
+  --app-content-max: 1440px;
+  --app-avatar-size: 32px;
+  --app-thumb-size: 56px;
+  --app-org-node-width: 220px;
+  --app-org-node-height: 76px;
+  --app-skeleton-from: var(--color-sf-bg-surface-muted);
+  --app-skeleton-to: var(--color-sf-border-primary);
+
+  /* Accent roles used where the component theme's indigo fails contrast (UX review items 5, 13, 14, 15). */
+  --app-color-indigo-400: #818cf8;
+  --app-color-indigo-700: #4338ca;
+  --app-color-white: #ffffff;
+  --app-accent-text: var(--color-sf-fg-brand-primary);
+  --app-accent-strong-bg: var(--app-color-indigo-700);
+  --app-on-accent: var(--app-color-white);
+  --app-modal-overlay: rgba(15, 23, 42, 0.5);
+}
+:root[data-theme="dark"] {
+  --app-color-teal-600: #5eead4;
+  --app-color-violet-600: #c4b5fd;
+  --app-color-rose-600: #fda4af;
+  --app-color-orange-600: #fdba74;
+  --app-status-new-bg: var(--sf-color-slate-200);
+  --app-status-new-fg: var(--sf-color-slate-900);
+  --app-accent-text: var(--app-color-indigo-400);
+  --app-modal-overlay: rgba(0, 0, 0, 0.6);
+}

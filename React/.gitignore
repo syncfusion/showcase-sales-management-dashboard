@@ -1,0 +1,7 @@
+node_modules
+dist
+*.tsbuildinfo
+public/styles/syncfusion/
+.env
+.env.local
+syncfusion-license.txt
