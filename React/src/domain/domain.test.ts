@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { miniFixture, CLOCK } from './testFixture';
 import { grossByMember, grossByMonth, kpis, unitsByCategory, unitsByLocation, unitsByLocationCategory, pipeline } from './selectors';
-import { createOrder, deleteAppointment, deleteEmployee, moveOrderStatus, upsertAppointment, upsertEmployee } from './commands';
+import { allowedNextStatuses, createOrder, deleteAppointment, deleteEmployee, moveOrderStatus, pipelineTransitions, upsertAppointment, upsertEmployee } from './commands';
 import { rebase, rebaseOffsetDays } from './rebase';
 import { validateFixtures } from './validateFixtures';
 
@@ -45,6 +45,17 @@ describe('order commands', () => {
   it('requires a client, lines and a sales rep', () => {
     const r = createOrder(miniFixture(), { repId: 2, clientId: null, lines: [] }, CLOCK);
     expect(r.ok ? [] : r.errors.map((e) => e.code)).toEqual(['REP_NOT_SR', 'CLIENT_REQUIRED', 'LINES_REQUIRED']);
+  });
+  it('board moves equal the order life cycle', () => {
+    expect(pipelineTransitions('New')).toEqual(['Processing', 'Cancelled']);
+    expect(pipelineTransitions('Processing')).toEqual(['Shipped', 'Cancelled']);
+    expect(pipelineTransitions('Shipped')).toEqual(['Delivered']);
+    expect(pipelineTransitions('Delivered')).toEqual(['Delivered']);
+    expect(pipelineTransitions('Cancelled')).toEqual(['Cancelled']);
+    for (const status of ['New', 'Processing', 'Shipped', 'Delivered', 'Cancelled'] as const) {
+      const allowed = allowedNextStatuses(status);
+      expect(pipelineTransitions(status)).toEqual(allowed.length ? allowed : [status]);
+    }
   });
   it('status transitions', () => {
     const created = createOrder(miniFixture(), { repId: 5, clientId: 1, lines: [{ productId: 3, qty: 2 }, { productId: 13, qty: 1 }] }, CLOCK);

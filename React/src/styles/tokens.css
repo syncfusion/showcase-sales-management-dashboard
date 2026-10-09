@@ -1,4 +1,4 @@
-/* Factory baseline v1.1.0: primitive -> semantic -> component tokens.
+/* Factory baseline v1.3.0: primitive -> semantic -> component tokens.
    Generated applications copy/adapt this source into their platform stylesheet;
    component styles consume semantic/component tokens, never raw visual values. */
 :root {
@@ -21,6 +21,15 @@
   --sf-color-amber-600: #b54708;
   --sf-color-red-50: #fef3f2;
   --sf-color-red-600: #b42318;
+  /* Primitive: chart category colours (vivid; one hue family per slot, the same family in both themes). */
+  --sf-color-chart-blue: #3b82f6;
+  --sf-color-chart-teal: #0d9488;
+  --sf-color-chart-fuchsia: #a21caf;
+  --sf-color-chart-slate: #334155;
+  --sf-color-chart-sky: #0369a1;
+  --sf-color-chart-cyan: #0891b2;
+  --sf-color-chart-purple: #a855f7;
+  --sf-color-chart-indigo: #4f46e5;
 
   /* Primitive: spacing, radius, elevation, typography */
   --sf-space-1: 4px; --sf-space-2: 8px; --sf-space-3: 12px;
@@ -49,7 +58,22 @@
   --color-sf-fg-warning-primary: var(--sf-color-amber-600);
   --color-sf-bg-danger-primary: var(--sf-color-red-50);
   --color-sf-fg-danger-primary: var(--sf-color-red-600);
-  --color-sf-chart-series-1: var(--sf-color-blue-600);
+  --color-sf-bg-info-primary: var(--sf-color-blue-50);
+  --color-sf-fg-info-primary: var(--sf-color-blue-600);
+  --color-sf-bg-neutral-primary: var(--sf-color-slate-100);
+  --color-sf-fg-neutral-primary: var(--sf-color-slate-500);
+  /* Categorical series tell things apart and never use the status hues (design-system.md, "Colour semantics").
+     Vivid, for normal vision; checked by factory/tools/palette-check.mjs. Order: neighbouring slots differ most. */
+  --color-sf-chart-series-1: var(--sf-color-chart-blue);
+  --color-sf-chart-series-2: var(--sf-color-chart-teal);
+  --color-sf-chart-series-3: var(--sf-color-chart-fuchsia);
+  --color-sf-chart-series-4: var(--sf-color-chart-slate);
+  --color-sf-chart-series-5: var(--sf-color-chart-sky);
+  --color-sf-chart-series-6: var(--sf-color-chart-cyan);
+  --color-sf-chart-series-7: var(--sf-color-chart-purple);
+  --color-sf-chart-series-8: var(--sf-color-chart-indigo);
+  /* A reference line or mark that judges nothing: a budget, a target, last year. */
+  --color-sf-chart-reference: var(--sf-color-slate-500);
   --color-sf-focus-ring: var(--sf-color-blue-600);
 
   /* Component */
@@ -92,5 +116,13 @@
   --sf-color-amber-600: #fbbf24;
   --sf-color-red-50: #450a0a;
   --sf-color-red-600: #fca5a5;
+  --sf-color-chart-blue: #3b82f6;
+  --sf-color-chart-teal: #2dd4bf;
+  --sf-color-chart-fuchsia: #e879f9;
+  --sf-color-chart-slate: #64748b;
+  --sf-color-chart-sky: #0ea5e9;
+  --sf-color-chart-cyan: #22d3ee;
+  --sf-color-chart-purple: #a855f7;
+  --sf-color-chart-indigo: #6366f1;
   --sf-shadow-sm: 0 1px 3px rgb(0 0 0 / 35%);
 }

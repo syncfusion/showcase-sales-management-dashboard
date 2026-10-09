@@ -1,0 +1,80 @@
+{
+  "baseUrl": "http://localhost:4318/sales-management/react/",
+  "routes": [
+    {
+      "name": "dashboard",
+      "path": "./dashboard",
+      "settleMs": 2500
+    },
+    {
+      "name": "orders-new",
+      "path": "./orders?tab=new",
+      "settleMs": 2000
+    },
+    {
+      "name": "orders-pipeline",
+      "path": "./orders?tab=pipeline",
+      "settleMs": 2000,
+      "toggleSidebar": false
+    },
+    {
+      "name": "orders-history",
+      "path": "./orders?tab=history",
+      "settleMs": 2000
+    },
+    {
+      "name": "appointments",
+      "path": "./appointments",
+      "settleMs": 2000
+    },
+    {
+      "name": "team",
+      "path": "./team",
+      "settleMs": 2000
+    },
+    {
+      "name": "organisation",
+      "path": "./organisation",
+      "settleMs": 2500
+    }
+  ],
+  "themes": {
+    "light": {
+      "localStorage": {
+        "oexl-theme": "light"
+      }
+    },
+    "dark": {
+      "localStorage": {
+        "oexl-theme": "dark"
+      }
+    }
+  },
+  "screenshotDir": "../../validation/screenshots/prototype-check",
+  "allowTrialBanner": true,
+  "colourRules": [
+    {
+      "route": "dashboard",
+      "name": "location share slices use the chart series",
+      "kind": "categorical",
+      "selector": "#chart-loc-share [id*='_Series_0_Point_']",
+      "property": "fill"
+    },
+    {
+      "route": "dashboard",
+      "name": "location and category bars use the chart series",
+      "kind": "categorical",
+      "selector": "#chart-loc-cat [id*='_Series_'][id*='_Point_']",
+      "property": "fill"
+    },
+    {
+      "route": "dashboard",
+      "name": "KPI icons count, they do not judge",
+      "kind": "categorical",
+      "selector": ".kpi-card .kpi-icon"
+    }
+  ],
+  "notes": {
+    "orders-pipeline.toggleSidebar": "The order board keeps a 1040px minimum width and scrolls sideways inside .kanban-wrap when the content is narrower (design/DESIGN.md, Layout: Kanban with horizontal scroll, columns min 240px), so it is wider than its container by design at 1024px. Run of 2026-10-08T17:5x with the dock test on: 54/56 passed, the two failures being this board at 1024px in both themes; at 1440px it passed the dock test."
+  }
+}

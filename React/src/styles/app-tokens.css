@@ -1,16 +1,5 @@
 /* App-specific token extensions (design/DESIGN.md). Primitives first, then semantic/component roles. */
 :root {
-  --app-color-teal-600: #0e7c86;
-  --app-color-violet-600: #6941c6;
-  --app-color-rose-600: #c01048;
-  --app-color-orange-600: #c4320a;
-
-  --color-sf-chart-series-2: var(--app-color-teal-600);
-  --color-sf-chart-series-3: var(--sf-color-amber-600);
-  --color-sf-chart-series-4: var(--app-color-violet-600);
-  --color-sf-chart-series-5: var(--app-color-rose-600);
-  --color-sf-chart-series-6: var(--sf-color-slate-500);
-
   --app-category-c1: var(--color-sf-chart-series-1);
   --app-category-c2: var(--color-sf-chart-series-2);
   --app-category-c3: var(--color-sf-chart-series-3);
@@ -21,22 +10,28 @@
   --app-location-NY: var(--color-sf-chart-series-3);
   --app-location-WA: var(--color-sf-chart-series-4);
 
-  --app-status-new-bg: var(--sf-color-slate-100);
-  --app-status-new-fg: var(--sf-color-slate-700);
-  --app-status-processing-bg: var(--color-sf-bg-brand-subtle);
-  --app-status-processing-fg: var(--color-sf-fg-brand-primary);
-  --app-status-shipped-bg: var(--color-sf-bg-warning-primary);
-  --app-status-shipped-fg: var(--color-sf-fg-warning-primary);
+  /* Order status is a life-cycle state, not a judged value: neutral, info, info, success, danger. */
+  --app-status-new-bg: var(--color-sf-bg-neutral-primary);
+  --app-status-new-fg: var(--color-sf-fg-neutral-primary);
+  --app-status-processing-bg: var(--color-sf-bg-info-primary);
+  --app-status-processing-fg: var(--color-sf-fg-info-primary);
+  --app-status-shipped-bg: var(--color-sf-bg-info-primary);
+  --app-status-shipped-fg: var(--color-sf-fg-info-primary);
   --app-status-delivered-bg: var(--color-sf-bg-success-primary);
   --app-status-delivered-fg: var(--color-sf-fg-success-primary);
   --app-status-cancelled-bg: var(--color-sf-bg-danger-primary);
   --app-status-cancelled-fg: var(--color-sf-fg-danger-primary);
 
-  --app-sample-badge-bg: var(--color-sf-bg-brand-subtle);
-  --app-sample-badge-fg: var(--color-sf-fg-brand-primary);
+  --app-sample-badge-bg: var(--color-sf-bg-info-primary);
+  --app-sample-badge-fg: var(--color-sf-fg-info-primary);
 
-  --app-topbar-height: 56px;
-  --app-sidebar-width: 248px;
+  /* Assistant: floating chat button and right-side panel. */
+  --app-assistant-width: 400px;
+  --app-fab-offset: var(--sf-space-6);
+  --app-fab-size: 56px;
+  --app-fab-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+
+  --app-topbar-height: 64px;
   --app-content-max: 1440px;
   --app-avatar-size: 32px;
   --app-thumb-size: 56px;
@@ -54,13 +49,9 @@
   --app-on-accent: var(--app-color-white);
   --app-modal-overlay: rgba(15, 23, 42, 0.5);
 }
+@media (max-width: 639.98px) { :root { --app-fab-offset: var(--sf-space-4); } }
 :root[data-theme="dark"] {
-  --app-color-teal-600: #5eead4;
-  --app-color-violet-600: #c4b5fd;
-  --app-color-rose-600: #fda4af;
-  --app-color-orange-600: #fdba74;
-  --app-status-new-bg: var(--sf-color-slate-200);
-  --app-status-new-fg: var(--sf-color-slate-900);
   --app-accent-text: var(--app-color-indigo-400);
   --app-modal-overlay: rgba(0, 0, 0, 0.6);
+  --app-fab-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
 }

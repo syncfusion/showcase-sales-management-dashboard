@@ -17,8 +17,22 @@ const TYPES = {
   '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8',
   '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png',
   '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.ico': 'image/x-icon', '.woff': 'font/woff', '.woff2': 'font/woff2',
-  '.ttf': 'font/ttf', '.txt': 'text/plain; charset=utf-8', '.map': 'application/json; charset=utf-8',
+  '.ttf': 'font/ttf', '.txt': 'text/plain; charset=utf-8', '.map': 'application/json; charset=utf-8', '.wasm': 'application/wasm',
 };
+
+// Compressed delivery (factory/standards/app-source-baseline.md, "Loading states"): scripts/precompress.mjs
+// writes .br and .gz copies after the build; send the smallest one the request accepts. Brotli first.
+const ENCODINGS = [['br', '.br'], ['gzip', '.gz']];
+export function pickEncoding(acceptEncoding, filePath) {
+  const accepted = String(acceptEncoding || '').toLowerCase().split(',')
+    .map((part) => part.trim().split(';'))
+    .filter(([, q]) => !q || parseFloat(q.split('=')[1]) > 0)
+    .map(([name]) => name.trim());
+  for (const [name, ext] of ENCODINGS) {
+    if ((accepted.includes(name) || accepted.includes('*')) && existsSync(filePath + ext)) return { name, path: filePath + ext };
+  }
+  return null;
+}
 
 export function stripMountPath(pathname) {
   if (pathname === mountPath || pathname.startsWith(`${mountPath}/`)) return pathname.slice(mountPath.length) || '/';
@@ -26,9 +40,16 @@ export function stripMountPath(pathname) {
 }
 
 function send(res, status, headers, body) { res.writeHead(status, headers); res.end(body); }
-function sendFile(res, file, cache) {
-  res.writeHead(200, { 'Content-Type': TYPES[extname(file).toLowerCase()] ?? 'application/octet-stream', 'Cache-Control': cache, 'X-Content-Type-Options': 'nosniff' });
-  createReadStream(file).pipe(res);
+function sendFile(req, res, file, cache) {
+  const headers = { 'Content-Type': TYPES[extname(file).toLowerCase()] ?? 'application/octet-stream', 'Cache-Control': cache, 'X-Content-Type-Options': 'nosniff' };
+  const encoding = pickEncoding(req.headers['accept-encoding'], file);
+  if (existsSync(file + '.br') || existsSync(file + '.gz')) headers.Vary = 'Accept-Encoding';
+  if (encoding) headers['Content-Encoding'] = encoding.name;
+  const sendPath = encoding ? encoding.path : file;
+  headers['Content-Length'] = statSync(sendPath).size;
+  res.writeHead(200, headers);
+  if (req.method === 'HEAD') { res.end(); return; }
+  createReadStream(sendPath).pipe(res);
 }
 
 export const server = createServer((req, res) => {
@@ -59,12 +80,12 @@ export const server = createServer((req, res) => {
 
   if (relative !== '/' && existsSync(file) && statSync(file).isFile()) {
     const hashed = relative.startsWith('/assets/');
-    return sendFile(res, file, hashed ? 'public, max-age=31536000, immutable' : relative.endsWith('.html') ? 'no-cache' : 'public, max-age=3600');
+    return sendFile(req, res, file, hashed ? 'public, max-age=31536000, immutable' : relative.endsWith('.html') ? 'no-cache' : 'public, max-age=3600');
   }
   // A missing file with an extension is a real 404, not a page; everything else is an SPA route.
   if (extname(relative)) return send(res, 404, { 'Content-Type': 'text/plain; charset=utf-8' }, 'Not found');
   if (!existsSync(indexFile)) return send(res, 503, { 'Content-Type': 'text/plain; charset=utf-8' }, 'Build missing: run npm run build');
-  return sendFile(res, indexFile, 'no-cache');
+  return sendFile(req, res, indexFile, 'no-cache');
 });
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

@@ -18,7 +18,7 @@ export function useNotifier() {
   const host = (
     <>
       <div className="toast-host">
-        <ToastComponent ref={toast} position={{ X: 'Right', Y: 'Bottom' }} showCloseButton newestOnTop
+        <ToastComponent ref={toast} position={{ X: 'Right', Y: 'Top' }} showCloseButton newestOnTop
           animation={reduced ? { show: { effect: 'FadeIn', duration: 0 }, hide: { effect: 'FadeOut', duration: 0 } } : undefined} />
       </div>
       <div className="sr-only" role="status" aria-live="polite">{live}</div>

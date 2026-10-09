@@ -7,21 +7,22 @@
     "node": ">=24"
   },
   "scripts": {
-    "predev": "node scripts/activate-license.mjs && node scripts/copy-theme.mjs",
+    "predev": "node scripts/copy-theme.mjs",
     "dev": "vite",
-    "prebuild": "node scripts/activate-license.mjs && node scripts/copy-theme.mjs",
-    "build": "tsc -b && vite build",
+    "prebuild": "node scripts/copy-theme.mjs",
+    "build": "tsc -b && vite build && node scripts/precompress.mjs",
     "preview": "vite preview",
     "test": "vitest run",
     "typecheck": "tsc -b",
-    "generate-data": "node src/data/generator/generate.mjs"
+    "generate-data": "node src/data/generator/generate.mjs",
+    "start": "node server.mjs"
   },
   "dependencies": {
     "@syncfusion/ej2-react-buttons": "34.2.8",
     "@syncfusion/ej2-react-charts": "34.2.8",
-    "@syncfusion/ej2-react-diagrams": "34.2.9",
+    "@syncfusion/ej2-react-diagrams": "34.2.8",
     "@syncfusion/ej2-react-dropdowns": "34.2.8",
-    "@syncfusion/ej2-react-grids": "34.2.9",
+    "@syncfusion/ej2-react-grids": "34.2.8",
     "@syncfusion/ej2-react-inputs": "34.2.8",
     "@syncfusion/ej2-react-interactive-chat": "34.2.8",
     "@syncfusion/ej2-react-kanban": "34.2.8",
@@ -29,15 +30,16 @@
     "@syncfusion/ej2-react-lists": "34.2.8",
     "@syncfusion/ej2-react-navigations": "34.2.8",
     "@syncfusion/ej2-react-notifications": "34.2.8",
+    "@syncfusion/ej2-react-popups": "34.2.8",
     "@syncfusion/ej2-react-schedule": "34.2.8",
-    "@syncfusion/ej2-tailwind3-theme": "34.2.9",
+    "@syncfusion/ej2-tailwind3-theme": "34.2.8",
     "lucide-react": "1.52.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "react-router": "8.4.0",
-    "react-router-dom": "^7.18.4"
+    "react-router": "8.4.0"
   },
   "devDependencies": {
+    "@playwright/test": "1.63.0",
     "@tailwindcss/vite": "4.3.3",
     "@types/node": "26.6.4",
     "@types/react": "19.3.0",

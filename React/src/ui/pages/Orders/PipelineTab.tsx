@@ -4,7 +4,7 @@ import { KanbanComponent, ColumnsDirective, ColumnDirective } from '@syncfusion/
 import type { ActionEventArgs, DialogEventArgs } from '@syncfusion/ej2-react-kanban';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import { useSalesData, useSalesStore } from '../../../state/SalesStore';
-import { allowedNextStatuses, moveOrderStatus } from '../../../domain/commands';
+import { allowedNextStatuses, moveOrderStatus, pipelineTransitions } from '../../../domain/commands';
 import { fullName, pipeline, salesReps } from '../../../domain/selectors';
 import { LOCATIONS } from '../../../domain/types';
 import type { OrderStatus } from '../../../domain/types';
@@ -22,16 +22,27 @@ const COLUMNS: Array<{ key: OrderStatus; title: string }> = [
 const moveLabel = (to: OrderStatus) => (to === 'Cancelled' ? 'Cancel order' : `Move to ${to}`);
 
 // Module-level card template; every displayed value is precomputed on the card record.
+// Syncfusion Card markup. Kanban already draws each card as an `e-card`, so the template supplies the card's
+// header, content and actions inside it; a second `e-card` here would be picked up by the drag instead of the card.
 const cardTemplate = (c: Card) => (
-  <div className={`order-card edge-${c.status}`}>
-    <div className="row"><strong>Order #{c.id}</strong></div>
-    <div>{c.client} <span className="muted">· {c.location}</span></div>
-    <div className="muted">{c.outlet}</div>
-    <div className="row"><span className="muted">Rep: {c.rep}</span></div>
-    <div className="row nowrap"><span>{c.unitsText}</span><strong>{c.totalText}</strong></div>
-    <div className="row"><span className="muted" title={c.whenTitle}>{c.whenText}</span></div>
+  <div className={`pipeline-item edge-${c.status}`}>
+    <div className="e-card-header">
+      <div className="e-card-header-caption">
+        <div className="e-card-header-title">Order #{c.id}</div>
+        <div className="e-card-sub-title">{c.client} · {c.location}</div>
+      </div>
+    </div>
+    <div className="e-card-content">
+      <div className="pc-rows">
+        <div><span className={`status-badge status-${c.status}`}>{c.status}</span></div>
+        <div className="muted">{c.outlet}</div>
+        <div className="muted">Rep: {c.rep}</div>
+        <div className="pc-row nowrap"><span>{c.unitsText}</span><strong>{c.totalText}</strong></div>
+        <div className="muted" title={c.whenTitle}>{c.whenText}</div>
+      </div>
+    </div>
     {c.moves.length > 0 && (
-      <div className="card-actions">
+      <div className="e-card-actions card-actions">
         {c.moves.map((m) => (
           <button key={m.to} type="button" className={`card-move${m.to === 'Cancelled' ? ' danger' : ''}`} data-order={c.id} data-to={m.to}
             aria-label={`${m.label}: order ${c.id}`}>{m.to === 'Cancelled' ? 'Cancel' : m.label}</button>
@@ -110,7 +121,7 @@ export function PipelineTab({ notify }: { notify: Notify }) {
           <label htmlFor="pipeline-loc">Location</label>
           <DropDownListComponent id="pipeline-loc" dataSource={locations} fields={{ value: 'value', text: 'text' }} value={locFilter} change={(e) => setLocFilter(e.value as string)} />
         </div>
-        <p className="muted toolbar-note">Orders placed in the last 30 days. Drag a card one step forward, or use its buttons. Delivered and cancelled orders are final.</p>
+        <p className="muted toolbar-note">Orders placed in the last 30 days. Drag a card one step forward, or use its buttons. New and Processing orders can also be cancelled. Delivered and cancelled orders are final.</p>
       </div>
       <div className="inline-status" role="status" aria-live="polite">{message}</div>
       <div className="kanban-wrap" onClickCapture={onBoardClick}>
@@ -119,7 +130,8 @@ export function PipelineTab({ notify }: { notify: Notify }) {
           actionBegin={onActionBegin} dialogOpen={(e: DialogEventArgs) => { e.cancel = true; }} height="640px">
           <ColumnsDirective>
             {COLUMNS.map((c) => (
-              <ColumnDirective key={c.key} keyField={c.key} headerText={c.title} showItemCount allowDrag={c.key !== 'Delivered' && c.key !== 'Cancelled'} />
+              <ColumnDirective key={c.key} keyField={c.key} headerText={c.title} showItemCount allowDrag={c.key !== 'Delivered' && c.key !== 'Cancelled'}
+                transitionColumns={pipelineTransitions(c.key)} />
             ))}
           </ColumnsDirective>
         </KanbanComponent>

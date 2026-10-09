@@ -54,6 +54,14 @@ export function allowedNextStatuses(status: OrderStatus): OrderStatus[] {
   const next = FLOW[FLOW.indexOf(status) + 1];
   return status === 'New' || status === 'Processing' ? [next, 'Cancelled'] : [next];
 }
+/**
+ * Kanban `transitionColumns` for a status column: the statuses its cards may be dropped on. A final status
+ * lists only itself, because an empty list would allow every column.
+ */
+export function pipelineTransitions(status: OrderStatus): OrderStatus[] {
+  const next = allowedNextStatuses(status);
+  return next.length ? next : [status];
+}
 export function moveOrderStatus(data: SalesData, orderId: number, to: OrderStatus, now: Date): Result<Order> {
   const order = data.orders.find((o) => o.id === orderId);
   if (!order) return fail({ code: 'UNKNOWN_ORDER', message: `Order ${orderId} was not found.` });

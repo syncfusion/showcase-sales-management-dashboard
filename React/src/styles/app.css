@@ -7,26 +7,11 @@ html, body, #root { height: 100%; }
 body { margin: 0; font-family: var(--sf-font-sans); background: var(--app-shell-bg); color: var(--color-sf-fg-primary); }
 :focus-visible { outline: 2px solid var(--app-focus-ring); outline-offset: 2px; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-.skip-link { position: absolute; left: var(--sf-space-4); top: -100px; z-index: 1000; background: var(--color-sf-bg-surface); color: var(--color-sf-fg-brand-primary); padding: var(--sf-space-2) var(--sf-space-3); border-radius: var(--sf-radius-md); }
-.skip-link:focus { top: var(--sf-space-2); }
 
 /* Shell */
-.app-shell { display: flex; flex-direction: column; height: 100%; }
-.app-topbar { height: var(--app-topbar-height); flex: none; display: flex; align-items: center; gap: var(--sf-space-3); padding: 0 var(--sf-space-4); background: var(--color-sf-bg-surface); border-bottom: 1px solid var(--color-sf-border-primary); position: relative; z-index: 20; }
-.app-brand { display: flex; align-items: center; gap: var(--sf-space-2); font-weight: 600; color: var(--color-sf-fg-primary); text-decoration: none; white-space: nowrap; }
-.app-brand img { height: 28px; width: auto; }
-.app-topbar-spacer { flex: 1; }
 .app-notice { font-size: 12px; color: var(--color-sf-fg-secondary); }
-.app-body { flex: 1; min-height: 0; position: relative; display: flex; }
-#app-sidebar { background: var(--color-sf-bg-surface); border-right: 1px solid var(--color-sf-border-primary); }
-.app-nav { display: flex; flex-direction: column; gap: var(--sf-space-1); padding: var(--sf-space-3); }
-.app-nav a { display: flex; align-items: center; gap: var(--sf-space-3); padding: var(--sf-space-2) var(--sf-space-3); border-radius: var(--sf-radius-md); color: var(--color-sf-fg-primary); text-decoration: none; font-size: 14px; }
-.app-nav a:hover { background: var(--color-sf-bg-surface-hover); }
-.app-nav a[aria-current="page"] { background: var(--app-nav-active-bg); color: var(--app-nav-active-fg); font-weight: 600; }
-.app-nav-close { display: flex; justify-content: flex-end; padding: var(--sf-space-2) var(--sf-space-3) 0; }
-.app-main { flex: 1; min-width: 0; overflow: auto; }
-.app-content { max-width: var(--app-content-max); margin: 0 auto; padding: var(--sf-space-6); }
-@media (max-width: 767px) { .app-content { padding: var(--sf-space-4); } .app-notice { display: none; } }
+.app-content { max-width: var(--app-content-max); margin: 0 auto; }
+@media (max-width: 767px) { .app-notice { display: none; } }
 
 .page-header { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--sf-space-4); margin-bottom: var(--sf-space-5); }
 .page-header h1 { font-size: 24px; line-height: 32px; font-weight: 600; margin: 0; }
@@ -48,7 +33,6 @@ body { margin: 0; font-family: var(--sf-font-sans); background: var(--app-shell-
 .kpi-card .kpi-value { font-size: 28px; line-height: 36px; font-weight: 600; color: var(--color-sf-fg-primary); }
 .kpi-card .kpi-note { font-size: 12px; color: var(--color-sf-fg-secondary); }
 .kpi-card .kpi-icon { position: absolute; top: calc(var(--app-kpi-content-inset-block) + 10px - var(--app-kpi-icon-size) / 2); right: var(--app-kpi-icon-inset-inline); width: var(--app-kpi-icon-size); height: var(--app-kpi-icon-size); display: grid; place-items: center; border-radius: var(--sf-radius-md); background: var(--app-kpi-icon-bg); color: var(--app-kpi-icon-fg); }
-.kpi-card .kpi-icon.info { background: var(--color-sf-bg-brand-subtle); color: var(--color-sf-fg-brand-primary); }
 
 /* Dashboard */
 .panel-header { display: flex; align-items: center; justify-content: space-between; gap: var(--sf-space-2); padding: var(--sf-space-3) var(--sf-space-4); font-weight: 600; font-size: 14px; }
@@ -89,10 +73,6 @@ body { margin: 0; font-family: var(--sf-font-sans); background: var(--app-shell-
 .status-Shipped { background: var(--app-status-shipped-bg); color: var(--app-status-shipped-fg); }
 .status-Delivered { background: var(--app-status-delivered-bg); color: var(--app-status-delivered-fg); }
 .status-Cancelled { background: var(--app-status-cancelled-bg); color: var(--app-status-cancelled-fg); }
-.order-card { display: flex; flex-direction: column; gap: var(--sf-space-1); padding: var(--sf-space-3); font-size: 13px; border-left: 3px solid var(--card-edge, var(--color-sf-border-strong)); }
-.order-card .row { display: flex; justify-content: space-between; align-items: center; gap: var(--sf-space-2); }
-.order-card .muted { color: var(--color-sf-fg-secondary); font-size: 12px; }
-.edge-New { --card-edge: var(--app-status-new-fg); } .edge-Processing { --card-edge: var(--app-status-processing-fg); } .edge-Shipped { --card-edge: var(--app-status-shipped-fg); } .edge-Delivered { --card-edge: var(--app-status-delivered-fg); } .edge-Cancelled { --card-edge: var(--app-status-cancelled-fg); }
 .kanban-wrap { overflow-x: auto; }
 .kanban-wrap .e-kanban { min-width: 1200px; }
 .tab-panel { padding-top: var(--sf-space-5); }
@@ -113,31 +93,21 @@ body { margin: 0; font-family: var(--sf-font-sans); background: var(--app-shell-
 .healthz dt { color: var(--color-sf-fg-secondary); }
 
 /* Shell details */
-.icon-button { display: inline-grid; place-items: center; width: 36px; height: 36px; flex: none; border: 0; border-radius: var(--sf-radius-md); background: transparent; color: var(--color-sf-fg-primary); cursor: pointer; }
-.icon-button:hover { background: var(--color-sf-bg-surface-hover); }
-.app-page-title { font-size: 14px; color: var(--color-sf-fg-secondary); padding-left: var(--sf-space-3); border-left: 1px solid var(--color-sf-border-primary); white-space: nowrap; }
+.app-page-title { font-size: 14px; font-weight: 600; color: var(--color-sf-fg-primary); white-space: nowrap; }
 .app-acting { font-size: 12px; font-weight: 600; color: var(--color-sf-fg-secondary); white-space: nowrap; }
 .e-btn .btn-text { margin-left: var(--sf-space-2); }
 .e-btn svg { vertical-align: middle; }
-/* The Sidebar is positioned by the component; keep it under the top bar instead of over it. */
-#app-sidebar.e-sidebar { top: var(--app-topbar-height); height: calc(100% - var(--app-topbar-height)); }
-.e-sidebar-overlay { top: var(--app-topbar-height); }
 @media (max-width: 1023px) { .app-page-title, .app-acting { display: none; } }
-@media (max-width: 599px) { .app-reset .btn-text, .app-brand-text { display: none; } }
 .inline-alert { margin-bottom: var(--sf-space-4); padding: var(--sf-space-3) var(--sf-space-4); border-radius: var(--sf-radius-md); background: var(--color-sf-bg-warning-primary); color: var(--color-sf-fg-warning-primary); font-size: 14px; }
 .muted { color: var(--color-sf-fg-secondary); font-size: 12px; }
 
 /* Dashboard details */
-.kpi-card .kpi-icon.success { background: var(--app-kpi-icon-bg); color: var(--app-kpi-icon-fg, var(--color-sf-fg-success-primary)); }
 .dashboard-toolbar { display: flex; align-items: center; justify-content: flex-end; margin-bottom: var(--sf-space-3); }
 .section-title { font-size: 16px; line-height: 24px; font-weight: 600; margin: 0; }
 .panel-header h2, .panel-header h3 { margin: 0; font-size: 14px; line-height: 20px; font-weight: 600; }
 #dashboard-layout .panel-header { cursor: move; }
 #dashboard-layout .e-panel-container { height: 100%; }
 #dashboard-layout.e-dashboardlayout { padding: 0; }
-.ai-banner { padding: var(--sf-space-3); font-size: 13px; color: var(--color-sf-fg-secondary); text-align: center; }
-.ai-banner p { margin: 0; }
-#sales-insights { border: 0; }
 
 /* Orders details */
 .page-header { margin-bottom: var(--sf-space-5); }
@@ -170,14 +140,7 @@ body { margin: 0; font-family: var(--sf-font-sans); background: var(--app-shell-
 .chart-figure { margin: 0; height: 100%; }
 
 /* Fixes from the first screenshot pass */
-.order-card { line-height: 18px; }
-.order-card .row { flex-wrap: wrap; column-gap: var(--sf-space-2); row-gap: 2px; }
-.order-card .row strong, .order-card .status-badge { white-space: nowrap; }
-.order-card .row.nowrap { flex-wrap: nowrap; }
 /* One action row per card: the forward move fills the row, Cancel stays compact. */
-.order-card .card-actions { flex-wrap: nowrap; gap: var(--sf-space-1); }
-.order-card .card-move { flex: 1 1 auto; white-space: nowrap; padding: 4px 6px; }
-.order-card .card-move.danger { flex: 0 0 auto; }
 #catalog .e-list-item:not(.e-list-group-item) { height: auto; line-height: normal; padding: var(--sf-space-2) var(--sf-space-4); }
 #catalog .e-list-item .e-checkbox { display: flex; align-items: center; gap: var(--sf-space-3); width: 100%; }
 #catalog .e-list-item .e-checkbox-wrapper { position: static; flex: none; margin: 0; }
@@ -185,7 +148,6 @@ body { margin: 0; font-family: var(--sf-font-sans); background: var(--app-shell-
 .e-btn:has(svg) { display: inline-flex; align-items: center; }
 #orders-tabs .e-tab-text { text-transform: none; }
 .kanban-wrap .e-kanban { min-width: 1040px; }
-.app-main { scrollbar-gutter: stable; }
 .e-card.kpi-card { line-height: normal; }
 .kpi-card .kpi-note { line-height: 16px; }
 #dashboard-layout .panel-body { box-sizing: border-box; }
@@ -220,8 +182,86 @@ body { margin: 0; font-family: var(--sf-font-sans); background: var(--app-shell-
 /* Sales insights: compact suggestion chips so all four fit above the prompt box. */
 #sales-insights .e-suggestion-list ul, #sales-insights .e-suggestion-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
 #sales-insights .e-suggestion-list li { margin: 0; padding: 4px 10px; font-size: 12px; line-height: 18px; }
-#sales-insights .ai-banner { padding: var(--sf-space-2); font-size: 12px; }
 
 /* Phone: KPI cards two by two so a chart shows sooner. */
 @media (max-width: 599px) { .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sf-space-2); } .kpi-card .kpi-value { font-size: 20px; line-height: 28px; } }
 .detail-wrap > .muted { margin: 0 0 var(--sf-space-2); }
+
+/* Interaction states (design-system.md): everything clickable shows the pointer; Syncfusion's own cursors still win. */
+@layer base {
+  button:not(:disabled), [role="button"], a[href], summary, label[for] { cursor: pointer; }
+}
+
+/* Shell: the reference shell (shell/app-shell.css) owns layout; these are the app's own header pieces. */
+.app-shell-logo img { width: 28px; height: 28px; object-fit: contain; }
+.app-shell-main { padding-bottom: calc(var(--app-fab-size) + 2 * var(--app-fab-offset)); }
+@media (max-width: 599px) { .app-reset .btn-text, .app-page-title { display: none; } }
+
+/* KPI icons count, they do not judge: info tone. Display-only cards have no hover tint. */
+.kpi-card .kpi-icon { background: var(--color-sf-bg-info-primary); color: var(--color-sf-fg-info-primary); }
+.e-card.kpi-card:hover, .e-card.app-card:hover { background: var(--app-kpi-bg); border-color: var(--app-card-border); box-shadow: var(--app-card-shadow); }
+
+/* Order pipeline cards: Kanban draws the e-card; the template fills it with Syncfusion Card header, content and actions. */
+.pipeline-item { display: flex; flex-direction: column; width: 100%; border-left: 3px solid var(--card-edge, var(--color-sf-border-strong)); font-size: 13px; line-height: 18px; }
+.pipeline-item .e-card-header { padding: var(--sf-space-3) var(--sf-space-3) 0; min-height: 0; }
+.pipeline-item .e-card-header .e-card-header-caption { padding: 0; }
+.pipeline-item .e-card-header-title { font-size: 13px; font-weight: 600; line-height: 18px; color: var(--color-sf-fg-primary); }
+.pipeline-item .e-card-sub-title { font-size: 12px; line-height: 16px; color: var(--color-sf-fg-secondary); }
+.pipeline-item .e-card-content { padding: var(--sf-space-1) var(--sf-space-3) var(--sf-space-2); font-size: 13px; line-height: 18px; color: var(--color-sf-fg-primary); }
+.pipeline-item .pc-rows { display: flex; flex-direction: column; gap: var(--sf-space-1); width: 100%; }
+.pipeline-item .pc-row { display: flex; justify-content: space-between; align-items: center; gap: var(--sf-space-2); flex-wrap: wrap; }
+.pipeline-item .pc-row.nowrap { flex-wrap: nowrap; }
+.pipeline-item .muted { color: var(--color-sf-fg-secondary); font-size: 12px; }
+.pipeline-item .e-card-actions { padding: 0 var(--sf-space-3) var(--sf-space-3); display: flex; flex-wrap: nowrap; gap: var(--sf-space-1); justify-content: flex-start; }
+.pipeline-item .card-move { flex: 1 1 auto; white-space: nowrap; padding: 4px 6px; }
+.pipeline-item .card-move.danger { flex: 0 0 auto; }
+.pipeline-item.edge-New { --card-edge: var(--app-status-new-fg); } .pipeline-item.edge-Processing { --card-edge: var(--app-status-processing-fg); } .pipeline-item.edge-Shipped { --card-edge: var(--app-status-shipped-fg); } .pipeline-item.edge-Delivered { --card-edge: var(--app-status-delivered-fg); } .pipeline-item.edge-Cancelled { --card-edge: var(--app-status-cancelled-fg); }
+
+/* Toasts sit under the top bar, clear of the chat button. */
+.e-toast-container.e-toast-top-right { top: calc(var(--app-topbar-height) + var(--sf-space-3)) !important; }
+
+/* Assistant: floating chat button (Syncfusion Floating Action Button) and right-side panel (Syncfusion Sidebar). */
+#assistant-fab.e-fab.e-btn { width: var(--app-fab-size); height: var(--app-fab-size); right: var(--app-fab-offset); bottom: var(--app-fab-offset); z-index: 1003; box-shadow: var(--app-fab-shadow); }
+/* Lucide "message-circle" (lucide-react 1.52.0), drawn as a mask so it takes the button's text colour. */
+#assistant-fab .assistant-fab-icon { width: 24px; height: 24px; margin: 0; background: currentColor; font-size: 0; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719'/%3E%3C/svg%3E") center / contain no-repeat; }
+/* While the panel is open the same button is the close button: Lucide "x". It stays above the panel. */
+#assistant-fab[aria-expanded="true"] .assistant-fab-icon { -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6 6 18'/%3E%3Cpath d='m6 6 12 12'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6 6 18'/%3E%3Cpath d='m6 6 12 12'/%3E%3C/svg%3E") center / contain no-repeat; }
+/* The panel stops above the button, so the close button sits under it at the bottom right. */
+#assistant-panel.e-sidebar { top: var(--app-topbar-height); height: calc(100dvh - var(--app-topbar-height) - var(--app-fab-size) - 2 * var(--app-fab-offset)); border-bottom: 1px solid var(--color-sf-border-primary) !important; border-bottom-left-radius: var(--sf-radius-lg); max-width: 100vw; background: var(--color-sf-bg-surface) !important; border-left: 1px solid var(--color-sf-border-primary) !important; box-shadow: var(--app-fab-shadow); overflow: hidden; }
+#assistant-panel:not(.e-open):not(.e-close) { visibility: hidden; } /* before Syncfusion initializes */
+#assistant-panel.e-close { visibility: hidden; } /* closed: out of the tab order and the accessibility tree */
+@media (max-width: 639.98px) { #assistant-panel.e-sidebar { width: 100vw !important; } }
+.assistant { display: flex; flex-direction: column; height: 100%; min-height: 0; color: var(--color-sf-fg-primary); }
+.assistant-header { display: flex; align-items: center; gap: var(--sf-space-2); min-height: 56px; padding: 0 var(--sf-space-2) 0 var(--sf-space-4); border-bottom: 1px solid var(--color-sf-border-primary); flex: none; }
+.assistant-header h2 { margin: 0; font-size: 14px; line-height: 20px; font-weight: 600; }
+.assistant-scope { margin: 0; padding: var(--sf-space-2) var(--sf-space-4); font-size: 12px; line-height: 16px; color: var(--color-sf-fg-secondary); border-bottom: 1px solid var(--color-sf-border-primary); flex: none; }
+.assistant-body { flex: 1; min-height: 0; position: relative; }
+#sales-insights { border: 0; }
+@media (prefers-reduced-motion: reduce) { #assistant-panel.e-sidebar { transition: none !important; } }
+
+/* Assistant view fits the 400px panel: the theme sizes the prompt box wider than a narrow host. */
+#sales-insights .e-view-content { padding: 0 var(--sf-space-3); box-sizing: border-box; }
+#sales-insights .e-footer { width: 100% !important; max-width: 100%; box-sizing: border-box; margin: 0 0 var(--sf-space-3); }
+#sales-insights .e-suggestions li { margin: 0 0 var(--sf-space-2) var(--sf-space-2); padding: 6px 10px; font-size: 13px; }
+#sales-insights .e-suggestion-header { text-align: left; margin: 0 0 var(--sf-space-2); color: var(--color-sf-fg-secondary); font-size: 12px; }
+#sales-insights .e-suggestions ul { justify-content: flex-start; margin-left: calc(-1 * var(--sf-space-2)); }
+
+/* Pipeline card header: title and client on the left, the status badge at the top right at its own height. */
+.pipeline-item .e-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sf-space-2); }
+.pipeline-item .e-card-header .e-card-header-caption { min-width: 0; flex: 1; }
+.pipeline-item .e-card-header .e-card-header-caption .e-card-header-title, .pipeline-item .e-card-header .e-card-header-caption .e-card-sub-title { white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; }
+.pipeline-item .status-badge { flex: none; align-self: flex-start; }
+.pipeline-item .e-card-actions { padding: 0 var(--sf-space-2) var(--sf-space-2); }
+.pipeline-item .e-card-actions .card-move { margin: 0; min-width: 0; height: auto; line-height: 16px; padding: 4px 3px; }
+.pipeline-item .e-card-actions .card-move.danger { padding: 4px 6px; }
+
+/* AI Assist, review of 2026-10-08: suggested questions read as buttons in both themes, and the prompt box
+   shows focus with a neutral border and a soft ring instead of the theme's solid accent outline. */
+#sales-insights .e-suggestions li { background: var(--color-sf-bg-surface-muted); border: 1px solid var(--color-sf-border-strong); border-radius: 999px; box-shadow: none; color: var(--color-sf-fg-primary); cursor: pointer; transition: background-color 120ms ease, border-color 120ms ease; }
+#sales-insights .e-suggestions li:hover { background: var(--color-sf-bg-brand-subtle); border-color: var(--color-sf-fg-brand-primary); color: var(--color-sf-fg-brand-primary); }
+#sales-insights .e-suggestions li:active { background: var(--color-sf-bg-surface-hover); }
+#sales-insights .e-suggestions li:focus-visible { outline: 2px solid var(--app-focus-ring); outline-offset: 2px; }
+#sales-insights .e-footer { background: var(--color-sf-bg-surface); border: 1px solid var(--color-sf-border-strong); border-radius: var(--sf-radius-lg); box-shadow: none; transition: border-color 120ms ease, box-shadow 120ms ease; }
+#sales-insights .e-footer.e-footer-focused { border-color: var(--color-sf-fg-secondary); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-sf-fg-secondary) 22%, transparent); }
+#sales-insights .e-footer .e-assist-textarea:focus-visible { outline: none; }
+@media (prefers-reduced-motion: reduce) { #sales-insights .e-suggestions li, #sales-insights .e-footer { transition: none; } }
